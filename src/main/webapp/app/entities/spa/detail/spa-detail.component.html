@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="spa">
+      <h2 data-cy="spaDetailsHeading"><span jhiTranslate="hospitalityprojectApp.spa.detail.title">Spa</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ spa.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.spa.date">Date</span></dt>
+        <dd>
+          <span>{{ spa.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.spa.publish">Publish</span></dt>
+        <dd>
+          <span>{{ spa.publish }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.spa.contentPosition">Content Position</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Position.' + spa.contentPosition }}">{{ spa.contentPosition }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.spa.imagePosition">Image Position</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Position.' + spa.imagePosition }}">{{ spa.imagePosition }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/spa', spa.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="restaurantMenuData">
+      <h2 data-cy="restaurantMenuDataDetailsHeading">
+        <span jhiTranslate="hospitalityprojectApp.restaurantMenuData.detail.title">Restaurant Menu Data</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ restaurantMenuData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + restaurantMenuData.lang }}">{{ restaurantMenuData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.title">Title</span></dt>
+        <dd>
+          <span>{{ restaurantMenuData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.content">Content</span></dt>
+        <dd>
+          <span>{{ restaurantMenuData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="restaurantMenuData.image">
+            <a (click)="openFile(restaurantMenuData.image, restaurantMenuData.imageContentType)">
+              <img
+                [src]="'data:' + restaurantMenuData.imageContentType + ';base64,' + restaurantMenuData.image"
+                style="max-width: 100%"
+                alt="restaurantMenuData image"
+              />
+            </a>
+            {{ restaurantMenuData.imageContentType }}, {{ byteSize(restaurantMenuData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.restaurantMenu">Restaurant Menu</span></dt>
+        <dd>
+          <div *ngIf="restaurantMenuData.restaurantMenu">
+            <a [routerLink]="['/restaurant-menu', restaurantMenuData.restaurantMenu?.id, 'view']">{{
+              restaurantMenuData.restaurantMenu?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/restaurant-menu-data', restaurantMenuData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

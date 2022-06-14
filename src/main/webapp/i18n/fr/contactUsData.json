@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "contactUsData": {
+      "home": {
+        "title": "ContactUsData",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Contact Us Data",
+        "createOrEditLabel": "Créer ou éditer un Contact Us Data",
+        "notFound": "Aucun Contact Us Data trouvé"
+      },
+      "created": "Un nouveau Contact Us Data a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Contact Us Data avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Contact Us Data avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Contact Us Data {{ id }} ?"
+      },
+      "detail": {
+        "title": "Contact Us Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "contactUs": "Contact Us"
+    }
+  }
+}

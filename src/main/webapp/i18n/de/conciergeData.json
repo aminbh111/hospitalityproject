@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "conciergeData": {
+      "home": {
+        "title": "Concierge Data",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Concierge Data erstellen",
+        "createOrEditLabel": "Concierge Data erstellen oder bearbeiten",
+        "notFound": "Keine Concierge Data gefunden"
+      },
+      "created": "Concierge Data erstellt mit ID {{ param }}",
+      "updated": "Concierge Data aktualisiert mit ID {{ param }}",
+      "deleted": "Concierge Data gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Concierge Data {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Concierge Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "concierge": "Concierge"
+    }
+  }
+}

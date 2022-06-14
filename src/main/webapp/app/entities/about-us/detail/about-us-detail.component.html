@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="aboutUs">
+      <h2 data-cy="aboutUsDetailsHeading"><span jhiTranslate="hospitalityprojectApp.aboutUs.detail.title">About Us</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ aboutUs.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.aboutUs.date">Date</span></dt>
+        <dd>
+          <span>{{ aboutUs.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.aboutUs.publish">Publish</span></dt>
+        <dd>
+          <span>{{ aboutUs.publish }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.aboutUs.contentPosition">Content Position</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Position.' + aboutUs.contentPosition }}">{{ aboutUs.contentPosition }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.aboutUs.imagePosition">Image Position</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Position.' + aboutUs.imagePosition }}">{{ aboutUs.imagePosition }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/about-us', aboutUs.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

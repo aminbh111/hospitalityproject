@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "spa": {
+      "home": {
+        "title": "Spas",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Spa",
+        "createOrEditLabel": "Créer ou éditer un Spa",
+        "notFound": "Aucun Spa trouvé"
+      },
+      "created": "Un nouveau Spa a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Spa avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Spa avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Spa {{ id }} ?"
+      },
+      "detail": {
+        "title": "Spa"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "spaData": "Spa Data"
+    }
+  }
+}

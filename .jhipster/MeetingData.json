@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201601",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "meeting_data",
+  "fields": [
+    {
+      "fieldName": "lang",
+      "fieldType": "Language",
+      "fieldValues": "FR,EN,DE"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "MeetingData",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "meeting",
+      "otherEntityRelationshipName": "meetingData",
+      "relationshipName": "meeting",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

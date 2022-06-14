@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "serviceData": {
+      "home": {
+        "title": "Service Data",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Service Data erstellen",
+        "createOrEditLabel": "Service Data erstellen oder bearbeiten",
+        "notFound": "Keine Service Data gefunden"
+      },
+      "created": "Service Data erstellt mit ID {{ param }}",
+      "updated": "Service Data aktualisiert mit ID {{ param }}",
+      "deleted": "Service Data gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Service Data {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Service Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "service": "Service"
+    }
+  }
+}

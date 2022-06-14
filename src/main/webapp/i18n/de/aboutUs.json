@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "aboutUs": {
+      "home": {
+        "title": "Aboutuses",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "About Us erstellen",
+        "createOrEditLabel": "About Us erstellen oder bearbeiten",
+        "notFound": "Keine Aboutuses gefunden"
+      },
+      "created": "About Us erstellt mit ID {{ param }}",
+      "updated": "About Us aktualisiert mit ID {{ param }}",
+      "deleted": "About Us gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll About Us {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "About Us"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "aboutUsData": "About Us Data"
+    }
+  }
+}

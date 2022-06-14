@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "offerData": {
+      "home": {
+        "title": "OfferData",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Offer Data",
+        "createOrEditLabel": "Créer ou éditer un Offer Data",
+        "notFound": "Aucun Offer Data trouvé"
+      },
+      "created": "Un nouveau Offer Data a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Offer Data avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Offer Data avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Offer Data {{ id }} ?"
+      },
+      "detail": {
+        "title": "Offer Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "offer": "Offer"
+    }
+  }
+}

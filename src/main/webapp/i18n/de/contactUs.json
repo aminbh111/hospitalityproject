@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "contactUs": {
+      "home": {
+        "title": "Contactuses",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Contact Us erstellen",
+        "createOrEditLabel": "Contact Us erstellen oder bearbeiten",
+        "notFound": "Keine Contactuses gefunden"
+      },
+      "created": "Contact Us erstellt mit ID {{ param }}",
+      "updated": "Contact Us aktualisiert mit ID {{ param }}",
+      "deleted": "Contact Us gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Contact Us {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Contact Us"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "contactUsData": "Contact Us Data"
+    }
+  }
+}
