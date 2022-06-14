@@ -1,0 +1,89 @@
+entity Service {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity ServiceData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	Service to ServiceData{service}
+}
+
+
+
+entity RestaurantMenu {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity RestaurantMenuData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	RestaurantMenu to RestaurantMenuData{restaurantMenu}
+}
+
+
+
+
+entity Concierge {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity ConciergeData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	Concierge to ConciergeData{concierge}
+}
+
+
+entity Playlist {
+    date ZonedDateTime,
+	lang Language,
+	file TextBlob,
+}
+
+
+
+enum Position {
+    LEFT, RIGHT, CENTER
+}
+
+enum Language {
+    FR, EN, DE
+}
+// Set pagination options
+paginate Service, RestaurantMenu, Concierge, Playlist with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Service, RestaurantMenu, Concierge, Playlist
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
