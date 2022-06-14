@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "restaurantMenu": {
+      "home": {
+        "title": "RestaurantMenus",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Restaurant Menu",
+        "createOrEditLabel": "Créer ou éditer un Restaurant Menu",
+        "notFound": "Aucun Restaurant Menu trouvé"
+      },
+      "created": "Un nouveau Restaurant Menu a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Restaurant Menu avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Restaurant Menu avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Restaurant Menu {{ id }} ?"
+      },
+      "detail": {
+        "title": "Restaurant Menu"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "restaurantMenuData": "Restaurant Menu Data"
+    }
+  }
+}

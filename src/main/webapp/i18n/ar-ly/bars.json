@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "bars": {
+      "home": {
+        "title": "Bars",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bars",
+        "createOrEditLabel": "Create or edit a Bars",
+        "notFound": "No Bars found"
+      },
+      "created": "A new Bars is created with identifier {{ param }}",
+      "updated": "A Bars is updated with identifier {{ param }}",
+      "deleted": "A Bars is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bars {{ id }}?"
+      },
+      "detail": {
+        "title": "Bars"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "barsData": "Bars Data"
+    }
+  }
+}

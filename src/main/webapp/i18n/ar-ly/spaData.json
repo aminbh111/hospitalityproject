@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "spaData": {
+      "home": {
+        "title": "Spa Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Spa Data",
+        "createOrEditLabel": "Create or edit a Spa Data",
+        "notFound": "No Spa Data found"
+      },
+      "created": "A new Spa Data is created with identifier {{ param }}",
+      "updated": "A Spa Data is updated with identifier {{ param }}",
+      "deleted": "A Spa Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Spa Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Spa Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "spa": "Spa"
+    }
+  }
+}

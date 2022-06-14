@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201552",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "contact_us",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "publish",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "contentPosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    },
+    {
+      "fieldName": "imagePosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ContactUs",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "contactUsData",
+      "otherEntityRelationshipName": "contactUs",
+      "relationshipName": "contactUsData",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

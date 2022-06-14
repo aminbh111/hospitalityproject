@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "serviceData": {
+      "home": {
+        "title": "Service Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Service Data",
+        "createOrEditLabel": "Create or edit a Service Data",
+        "notFound": "No Service Data found"
+      },
+      "created": "A new Service Data is created with identifier {{ param }}",
+      "updated": "A Service Data is updated with identifier {{ param }}",
+      "deleted": "A Service Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Service Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "service": "Service"
+    }
+  }
+}

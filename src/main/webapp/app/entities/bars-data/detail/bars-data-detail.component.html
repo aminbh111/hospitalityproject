@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="barsData">
+      <h2 data-cy="barsDataDetailsHeading"><span jhiTranslate="hospitalityprojectApp.barsData.detail.title">Bars Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ barsData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.barsData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + barsData.lang }}">{{ barsData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.barsData.title">Title</span></dt>
+        <dd>
+          <span>{{ barsData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.barsData.content">Content</span></dt>
+        <dd>
+          <span>{{ barsData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.barsData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="barsData.image">
+            <a (click)="openFile(barsData.image, barsData.imageContentType)">
+              <img [src]="'data:' + barsData.imageContentType + ';base64,' + barsData.image" style="max-width: 100%" alt="barsData image" />
+            </a>
+            {{ barsData.imageContentType }}, {{ byteSize(barsData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.barsData.bars">Bars</span></dt>
+        <dd>
+          <div *ngIf="barsData.bars">
+            <a [routerLink]="['/bars', barsData.bars?.id, 'view']">{{ barsData.bars?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/bars-data', barsData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

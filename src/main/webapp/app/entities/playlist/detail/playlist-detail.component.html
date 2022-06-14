@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="playlist">
+      <h2 data-cy="playlistDetailsHeading"><span jhiTranslate="hospitalityprojectApp.playlist.detail.title">Playlist</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ playlist.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.playlist.date">Date</span></dt>
+        <dd>
+          <span>{{ playlist.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.playlist.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + playlist.lang }}">{{ playlist.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.playlist.file">File</span></dt>
+        <dd>
+          <span>{{ playlist.file }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/playlist', playlist.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

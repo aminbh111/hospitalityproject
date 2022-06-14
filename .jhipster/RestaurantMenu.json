@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201546",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "restaurant_menu",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "publish",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "contentPosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    },
+    {
+      "fieldName": "imagePosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RestaurantMenu",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "restaurantMenuData",
+      "otherEntityRelationshipName": "restaurantMenu",
+      "relationshipName": "restaurantMenuData",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

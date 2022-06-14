@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "barsData": {
+      "home": {
+        "title": "BarsData",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Bars Data",
+        "createOrEditLabel": "Créer ou éditer un Bars Data",
+        "notFound": "Aucun Bars Data trouvé"
+      },
+      "created": "Un nouveau Bars Data a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bars Data avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bars Data avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Bars Data {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bars Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "bars": "Bars"
+    }
+  }
+}

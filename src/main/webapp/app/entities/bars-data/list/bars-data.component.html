@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading" data-cy="BarsDataHeading">
+    <span jhiTranslate="hospitalityprojectApp.barsData.home.title">Bars Data</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.barsData.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bars-data"
+        [routerLink]="['/bars-data/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.barsData.home.createLabel"> Create a new Bars Data </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="barsData?.length === 0">
+    <span jhiTranslate="hospitalityprojectApp.barsData.home.notFound">No barsData found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="barsData && barsData.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.barsData.lang">Lang</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.barsData.title">Title</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.barsData.content">Content</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.barsData.image">Image</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.barsData.bars">Bars</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let barsData of barsData; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/bars-data', barsData.id, 'view']">{{ barsData.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'hospitalityprojectApp.Language.' + barsData.lang }}">{{ barsData.lang }}</td>
+          <td>{{ barsData.title }}</td>
+          <td>{{ barsData.content }}</td>
+          <td>
+            <a *ngIf="barsData.image" (click)="openFile(barsData.image, barsData.imageContentType)">
+              <img
+                [src]="'data:' + barsData.imageContentType + ';base64,' + barsData.image"
+                style="max-height: 30px"
+                alt="barsData image"
+              />
+            </a>
+            <span *ngIf="barsData.image">{{ barsData.imageContentType }}, {{ byteSize(barsData.image) }}</span>
+          </td>
+          <td>
+            <div *ngIf="barsData.bars">
+              <a [routerLink]="['/bars', barsData.bars?.id, 'view']">{{ barsData.bars?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/bars-data', barsData.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/bars-data', barsData.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(barsData)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

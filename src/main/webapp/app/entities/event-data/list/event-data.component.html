@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading" data-cy="EventDataHeading">
+    <span jhiTranslate="hospitalityprojectApp.eventData.home.title">Event Data</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.eventData.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-event-data"
+        [routerLink]="['/event-data/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.eventData.home.createLabel"> Create a new Event Data </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="eventData?.length === 0">
+    <span jhiTranslate="hospitalityprojectApp.eventData.home.notFound">No eventData found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="eventData && eventData.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.eventData.lang">Lang</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.eventData.title">Title</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.eventData.content">Content</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.eventData.image">Image</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.eventData.event">Event</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let eventData of eventData; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/event-data', eventData.id, 'view']">{{ eventData.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'hospitalityprojectApp.Language.' + eventData.lang }}">{{ eventData.lang }}</td>
+          <td>{{ eventData.title }}</td>
+          <td>{{ eventData.content }}</td>
+          <td>
+            <a *ngIf="eventData.image" (click)="openFile(eventData.image, eventData.imageContentType)">
+              <img
+                [src]="'data:' + eventData.imageContentType + ';base64,' + eventData.image"
+                style="max-height: 30px"
+                alt="eventData image"
+              />
+            </a>
+            <span *ngIf="eventData.image">{{ eventData.imageContentType }}, {{ byteSize(eventData.image) }}</span>
+          </td>
+          <td>
+            <div *ngIf="eventData.event">
+              <a [routerLink]="['/event', eventData.event?.id, 'view']">{{ eventData.event?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/event-data', eventData.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/event-data', eventData.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(eventData)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

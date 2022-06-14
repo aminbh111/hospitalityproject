@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "aboutUsData": {
+      "home": {
+        "title": "About Us Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new About Us Data",
+        "createOrEditLabel": "Create or edit a About Us Data",
+        "notFound": "No About Us Data found"
+      },
+      "created": "A new About Us Data is created with identifier {{ param }}",
+      "updated": "A About Us Data is updated with identifier {{ param }}",
+      "deleted": "A About Us Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete About Us Data {{ id }}?"
+      },
+      "detail": {
+        "title": "About Us Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "aboutUs": "About Us"
+    }
+  }
+}

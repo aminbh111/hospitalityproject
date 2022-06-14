@@ -1,0 +1,30 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201606",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "playlist",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "lang",
+      "fieldType": "Language",
+      "fieldValues": "FR,EN,DE"
+    },
+    {
+      "fieldName": "file",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Playlist",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

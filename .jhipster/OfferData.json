@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201603",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "offer_data",
+  "fields": [
+    {
+      "fieldName": "lang",
+      "fieldType": "Language",
+      "fieldValues": "FR,EN,DE"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "OfferData",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "offer",
+      "otherEntityRelationshipName": "offerData",
+      "relationshipName": "offer",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

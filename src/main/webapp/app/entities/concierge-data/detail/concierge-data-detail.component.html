@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="conciergeData">
+      <h2 data-cy="conciergeDataDetailsHeading">
+        <span jhiTranslate="hospitalityprojectApp.conciergeData.detail.title">Concierge Data</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ conciergeData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.conciergeData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + conciergeData.lang }}">{{ conciergeData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.conciergeData.title">Title</span></dt>
+        <dd>
+          <span>{{ conciergeData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.conciergeData.content">Content</span></dt>
+        <dd>
+          <span>{{ conciergeData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.conciergeData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="conciergeData.image">
+            <a (click)="openFile(conciergeData.image, conciergeData.imageContentType)">
+              <img
+                [src]="'data:' + conciergeData.imageContentType + ';base64,' + conciergeData.image"
+                style="max-width: 100%"
+                alt="conciergeData image"
+              />
+            </a>
+            {{ conciergeData.imageContentType }}, {{ byteSize(conciergeData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.conciergeData.concierge">Concierge</span></dt>
+        <dd>
+          <div *ngIf="conciergeData.concierge">
+            <a [routerLink]="['/concierge', conciergeData.concierge?.id, 'view']">{{ conciergeData.concierge?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/concierge-data', conciergeData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="aboutUsData">
+      <h2 data-cy="aboutUsDataDetailsHeading"><span jhiTranslate="hospitalityprojectApp.aboutUsData.detail.title">About Us Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ aboutUsData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.aboutUsData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + aboutUsData.lang }}">{{ aboutUsData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.aboutUsData.title">Title</span></dt>
+        <dd>
+          <span>{{ aboutUsData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.aboutUsData.content">Content</span></dt>
+        <dd>
+          <span>{{ aboutUsData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.aboutUsData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="aboutUsData.image">
+            <a (click)="openFile(aboutUsData.image, aboutUsData.imageContentType)">
+              <img
+                [src]="'data:' + aboutUsData.imageContentType + ';base64,' + aboutUsData.image"
+                style="max-width: 100%"
+                alt="aboutUsData image"
+              />
+            </a>
+            {{ aboutUsData.imageContentType }}, {{ byteSize(aboutUsData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.aboutUsData.aboutUs">About Us</span></dt>
+        <dd>
+          <div *ngIf="aboutUsData.aboutUs">
+            <a [routerLink]="['/about-us', aboutUsData.aboutUs?.id, 'view']">{{ aboutUsData.aboutUs?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/about-us-data', aboutUsData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
