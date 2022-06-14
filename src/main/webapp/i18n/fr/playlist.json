@@ -1,0 +1,26 @@
+{
+  "hospitalityprojectApp": {
+    "playlist": {
+      "home": {
+        "title": "Playlists",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Playlist",
+        "createOrEditLabel": "Créer ou éditer un Playlist",
+        "notFound": "Aucun Playlist trouvé"
+      },
+      "created": "Un nouveau Playlist a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Playlist avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Playlist avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Playlist {{ id }} ?"
+      },
+      "detail": {
+        "title": "Playlist"
+      },
+      "id": "ID",
+      "date": "Date",
+      "lang": "Lang",
+      "file": "File"
+    }
+  }
+}

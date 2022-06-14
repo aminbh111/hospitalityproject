@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="roomServiceData">
+      <h2 data-cy="roomServiceDataDetailsHeading">
+        <span jhiTranslate="hospitalityprojectApp.roomServiceData.detail.title">Room Service Data</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ roomServiceData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.roomServiceData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + roomServiceData.lang }}">{{ roomServiceData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.roomServiceData.title">Title</span></dt>
+        <dd>
+          <span>{{ roomServiceData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.roomServiceData.content">Content</span></dt>
+        <dd>
+          <span>{{ roomServiceData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.roomServiceData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="roomServiceData.image">
+            <a (click)="openFile(roomServiceData.image, roomServiceData.imageContentType)">
+              <img
+                [src]="'data:' + roomServiceData.imageContentType + ';base64,' + roomServiceData.image"
+                style="max-width: 100%"
+                alt="roomServiceData image"
+              />
+            </a>
+            {{ roomServiceData.imageContentType }}, {{ byteSize(roomServiceData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.roomServiceData.roomService">Room Service</span></dt>
+        <dd>
+          <div *ngIf="roomServiceData.roomService">
+            <a [routerLink]="['/room-service', roomServiceData.roomService?.id, 'view']">{{ roomServiceData.roomService?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/room-service-data', roomServiceData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

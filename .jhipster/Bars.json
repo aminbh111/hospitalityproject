@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201240",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "bars",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "publish",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "contentPosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    },
+    {
+      "fieldName": "imagePosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Bars",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "barsData",
+      "otherEntityRelationshipName": "bars",
+      "relationshipName": "barsData",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

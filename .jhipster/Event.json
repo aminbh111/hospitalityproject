@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201230",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "event",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "publish",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "contentPosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    },
+    {
+      "fieldName": "imagePosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Event",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "eventData",
+      "otherEntityRelationshipName": "event",
+      "relationshipName": "eventData",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="meetingData">
+      <h2 data-cy="meetingDataDetailsHeading"><span jhiTranslate="hospitalityprojectApp.meetingData.detail.title">Meeting Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ meetingData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.meetingData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + meetingData.lang }}">{{ meetingData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.meetingData.title">Title</span></dt>
+        <dd>
+          <span>{{ meetingData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.meetingData.content">Content</span></dt>
+        <dd>
+          <span>{{ meetingData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.meetingData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="meetingData.image">
+            <a (click)="openFile(meetingData.image, meetingData.imageContentType)">
+              <img
+                [src]="'data:' + meetingData.imageContentType + ';base64,' + meetingData.image"
+                style="max-width: 100%"
+                alt="meetingData image"
+              />
+            </a>
+            {{ meetingData.imageContentType }}, {{ byteSize(meetingData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.meetingData.meeting">Meeting</span></dt>
+        <dd>
+          <div *ngIf="meetingData.meeting">
+            <a [routerLink]="['/meeting', meetingData.meeting?.id, 'view']">{{ meetingData.meeting?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/meeting-data', meetingData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

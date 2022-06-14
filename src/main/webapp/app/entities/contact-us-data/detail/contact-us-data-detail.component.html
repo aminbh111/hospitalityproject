@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contactUsData">
+      <h2 data-cy="contactUsDataDetailsHeading">
+        <span jhiTranslate="hospitalityprojectApp.contactUsData.detail.title">Contact Us Data</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ contactUsData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.contactUsData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + contactUsData.lang }}">{{ contactUsData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.contactUsData.title">Title</span></dt>
+        <dd>
+          <span>{{ contactUsData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.contactUsData.content">Content</span></dt>
+        <dd>
+          <span>{{ contactUsData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.contactUsData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="contactUsData.image">
+            <a (click)="openFile(contactUsData.image, contactUsData.imageContentType)">
+              <img
+                [src]="'data:' + contactUsData.imageContentType + ';base64,' + contactUsData.image"
+                style="max-width: 100%"
+                alt="contactUsData image"
+              />
+            </a>
+            {{ contactUsData.imageContentType }}, {{ byteSize(contactUsData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.contactUsData.contactUs">Contact Us</span></dt>
+        <dd>
+          <div *ngIf="contactUsData.contactUs">
+            <a [routerLink]="['/contact-us', contactUsData.contactUs?.id, 'view']">{{ contactUsData.contactUs?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/contact-us-data', contactUsData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

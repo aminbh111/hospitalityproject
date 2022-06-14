@@ -1,0 +1,103 @@
+<div>
+  <h2 id="page-heading" data-cy="RestaurantMenuDataHeading">
+    <span jhiTranslate="hospitalityprojectApp.restaurantMenuData.home.title">Restaurant Menu Data</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.restaurantMenuData.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-restaurant-menu-data"
+        [routerLink]="['/restaurant-menu-data/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.restaurantMenuData.home.createLabel"> Create a new Restaurant Menu Data </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="restaurantMenuData?.length === 0">
+    <span jhiTranslate="hospitalityprojectApp.restaurantMenuData.home.notFound">No restaurantMenuData found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="restaurantMenuData && restaurantMenuData.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.lang">Lang</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.title">Title</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.content">Content</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.image">Image</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.restaurantMenuData.restaurantMenu">Restaurant Menu</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let restaurantMenuData of restaurantMenuData; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/restaurant-menu-data', restaurantMenuData.id, 'view']">{{ restaurantMenuData.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'hospitalityprojectApp.Language.' + restaurantMenuData.lang }}">{{ restaurantMenuData.lang }}</td>
+          <td>{{ restaurantMenuData.title }}</td>
+          <td>{{ restaurantMenuData.content }}</td>
+          <td>
+            <a *ngIf="restaurantMenuData.image" (click)="openFile(restaurantMenuData.image, restaurantMenuData.imageContentType)">
+              <img
+                [src]="'data:' + restaurantMenuData.imageContentType + ';base64,' + restaurantMenuData.image"
+                style="max-height: 30px"
+                alt="restaurantMenuData image"
+              />
+            </a>
+            <span *ngIf="restaurantMenuData.image"
+              >{{ restaurantMenuData.imageContentType }}, {{ byteSize(restaurantMenuData.image) }}</span
+            >
+          </td>
+          <td>
+            <div *ngIf="restaurantMenuData.restaurantMenu">
+              <a [routerLink]="['/restaurant-menu', restaurantMenuData.restaurantMenu?.id, 'view']">{{
+                restaurantMenuData.restaurantMenu?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/restaurant-menu-data', restaurantMenuData.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/restaurant-menu-data', restaurantMenuData.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(restaurantMenuData)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

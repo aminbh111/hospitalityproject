@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="eventData">
+      <h2 data-cy="eventDataDetailsHeading"><span jhiTranslate="hospitalityprojectApp.eventData.detail.title">Event Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ eventData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.eventData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + eventData.lang }}">{{ eventData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.eventData.title">Title</span></dt>
+        <dd>
+          <span>{{ eventData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.eventData.content">Content</span></dt>
+        <dd>
+          <span>{{ eventData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.eventData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="eventData.image">
+            <a (click)="openFile(eventData.image, eventData.imageContentType)">
+              <img
+                [src]="'data:' + eventData.imageContentType + ';base64,' + eventData.image"
+                style="max-width: 100%"
+                alt="eventData image"
+              />
+            </a>
+            {{ eventData.imageContentType }}, {{ byteSize(eventData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.eventData.event">Event</span></dt>
+        <dd>
+          <div *ngIf="eventData.event">
+            <a [routerLink]="['/event', eventData.event?.id, 'view']">{{ eventData.event?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/event-data', eventData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

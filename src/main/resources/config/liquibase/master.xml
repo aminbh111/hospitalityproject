@@ -15,7 +15,41 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201226_added_entity_Service.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201227_added_entity_ServiceData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201228_added_entity_RestaurantMenu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201229_added_entity_RestaurantMenuData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201230_added_entity_Event.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201231_added_entity_EventData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201232_added_entity_AboutUs.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201233_added_entity_AboutUsData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201234_added_entity_ContactUs.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201235_added_entity_ContactUsData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201236_added_entity_Spa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201237_added_entity_SpaData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201238_added_entity_RoomService.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201239_added_entity_RoomServiceData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201240_added_entity_Bars.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201241_added_entity_BarsData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201242_added_entity_Meeting.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201243_added_entity_MeetingData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201244_added_entity_Offer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201245_added_entity_OfferData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201246_added_entity_Concierge.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201247_added_entity_ConciergeData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201248_added_entity_Playlist.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20220614201227_added_entity_constraints_ServiceData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201229_added_entity_constraints_RestaurantMenuData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201231_added_entity_constraints_EventData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201233_added_entity_constraints_AboutUsData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201235_added_entity_constraints_ContactUsData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201237_added_entity_constraints_SpaData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201239_added_entity_constraints_RoomServiceData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201241_added_entity_constraints_BarsData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201243_added_entity_constraints_MeetingData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201245_added_entity_constraints_OfferData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220614201247_added_entity_constraints_ConciergeData.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

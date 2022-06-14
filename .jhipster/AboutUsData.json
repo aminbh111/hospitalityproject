@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201233",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "about_us_data",
+  "fields": [
+    {
+      "fieldName": "lang",
+      "fieldType": "Language",
+      "fieldValues": "FR,EN,DE"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AboutUsData",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "aboutUs",
+      "otherEntityRelationshipName": "aboutUsData",
+      "relationshipName": "aboutUs",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

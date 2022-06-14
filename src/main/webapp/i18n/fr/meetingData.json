@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "meetingData": {
+      "home": {
+        "title": "MeetingData",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Meeting Data",
+        "createOrEditLabel": "Créer ou éditer un Meeting Data",
+        "notFound": "Aucun Meeting Data trouvé"
+      },
+      "created": "Un nouveau Meeting Data a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Meeting Data avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Meeting Data avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Meeting Data {{ id }} ?"
+      },
+      "detail": {
+        "title": "Meeting Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "meeting": "Meeting"
+    }
+  }
+}

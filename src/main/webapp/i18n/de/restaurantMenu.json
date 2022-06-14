@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "restaurantMenu": {
+      "home": {
+        "title": "Restaurant Menus",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Restaurant Menu erstellen",
+        "createOrEditLabel": "Restaurant Menu erstellen oder bearbeiten",
+        "notFound": "Keine Restaurant Menus gefunden"
+      },
+      "created": "Restaurant Menu erstellt mit ID {{ param }}",
+      "updated": "Restaurant Menu aktualisiert mit ID {{ param }}",
+      "deleted": "Restaurant Menu gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Restaurant Menu {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Restaurant Menu"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "restaurantMenuData": "Restaurant Menu Data"
+    }
+  }
+}

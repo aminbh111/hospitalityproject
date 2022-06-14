@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201235",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "contact_us_data",
+  "fields": [
+    {
+      "fieldName": "lang",
+      "fieldType": "Language",
+      "fieldValues": "FR,EN,DE"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ContactUsData",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "contactUs",
+      "otherEntityRelationshipName": "contactUsData",
+      "relationshipName": "contactUs",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

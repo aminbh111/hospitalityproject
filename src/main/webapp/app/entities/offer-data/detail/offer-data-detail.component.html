@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="offerData">
+      <h2 data-cy="offerDataDetailsHeading"><span jhiTranslate="hospitalityprojectApp.offerData.detail.title">Offer Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ offerData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.offerData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + offerData.lang }}">{{ offerData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.offerData.title">Title</span></dt>
+        <dd>
+          <span>{{ offerData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.offerData.content">Content</span></dt>
+        <dd>
+          <span>{{ offerData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.offerData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="offerData.image">
+            <a (click)="openFile(offerData.image, offerData.imageContentType)">
+              <img
+                [src]="'data:' + offerData.imageContentType + ';base64,' + offerData.image"
+                style="max-width: 100%"
+                alt="offerData image"
+              />
+            </a>
+            {{ offerData.imageContentType }}, {{ byteSize(offerData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.offerData.offer">Offer</span></dt>
+        <dd>
+          <div *ngIf="offerData.offer">
+            <a [routerLink]="['/offer', offerData.offer?.id, 'view']">{{ offerData.offer?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/offer-data', offerData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

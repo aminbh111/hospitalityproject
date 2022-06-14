@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220614201236",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "spa",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "publish",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "contentPosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    },
+    {
+      "fieldName": "imagePosition",
+      "fieldType": "Position",
+      "fieldValues": "LEFT,RIGHT,CENTER,BACKGROUND"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Spa",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "spaData",
+      "otherEntityRelationshipName": "spa",
+      "relationshipName": "spaData",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
