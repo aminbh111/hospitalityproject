@@ -1,0 +1,26 @@
+{
+  "hospitalityprojectApp": {
+    "playlist": {
+      "home": {
+        "title": "Playlists",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Playlist erstellen",
+        "createOrEditLabel": "Playlist erstellen oder bearbeiten",
+        "notFound": "Keine Playlists gefunden"
+      },
+      "created": "Playlist erstellt mit ID {{ param }}",
+      "updated": "Playlist aktualisiert mit ID {{ param }}",
+      "deleted": "Playlist gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Playlist {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Playlist"
+      },
+      "id": "ID",
+      "date": "Date",
+      "lang": "Lang",
+      "file": "File"
+    }
+  }
+}

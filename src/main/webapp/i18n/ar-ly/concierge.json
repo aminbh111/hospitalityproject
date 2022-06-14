@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "concierge": {
+      "home": {
+        "title": "Concierges",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Concierge",
+        "createOrEditLabel": "Create or edit a Concierge",
+        "notFound": "No Concierges found"
+      },
+      "created": "A new Concierge is created with identifier {{ param }}",
+      "updated": "A Concierge is updated with identifier {{ param }}",
+      "deleted": "A Concierge is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Concierge {{ id }}?"
+      },
+      "detail": {
+        "title": "Concierge"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "conciergeData": "Concierge Data"
+    }
+  }
+}

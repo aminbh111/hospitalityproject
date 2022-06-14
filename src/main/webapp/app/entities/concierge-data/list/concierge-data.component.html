@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading" data-cy="ConciergeDataHeading">
+    <span jhiTranslate="hospitalityprojectApp.conciergeData.home.title">Concierge Data</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.conciergeData.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-concierge-data"
+        [routerLink]="['/concierge-data/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.conciergeData.home.createLabel"> Create a new Concierge Data </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="conciergeData?.length === 0">
+    <span jhiTranslate="hospitalityprojectApp.conciergeData.home.notFound">No conciergeData found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="conciergeData && conciergeData.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.conciergeData.lang">Lang</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.conciergeData.title">Title</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.conciergeData.content">Content</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.conciergeData.image">Image</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.conciergeData.concierge">Concierge</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let conciergeData of conciergeData; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/concierge-data', conciergeData.id, 'view']">{{ conciergeData.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'hospitalityprojectApp.Language.' + conciergeData.lang }}">{{ conciergeData.lang }}</td>
+          <td>{{ conciergeData.title }}</td>
+          <td>{{ conciergeData.content }}</td>
+          <td>
+            <a *ngIf="conciergeData.image" (click)="openFile(conciergeData.image, conciergeData.imageContentType)">
+              <img
+                [src]="'data:' + conciergeData.imageContentType + ';base64,' + conciergeData.image"
+                style="max-height: 30px"
+                alt="conciergeData image"
+              />
+            </a>
+            <span *ngIf="conciergeData.image">{{ conciergeData.imageContentType }}, {{ byteSize(conciergeData.image) }}</span>
+          </td>
+          <td>
+            <div *ngIf="conciergeData.concierge">
+              <a [routerLink]="['/concierge', conciergeData.concierge?.id, 'view']">{{ conciergeData.concierge?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/concierge-data', conciergeData.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/concierge-data', conciergeData.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(conciergeData)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
