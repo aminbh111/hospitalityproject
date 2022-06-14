@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading" data-cy="RoomServiceDataHeading">
+    <span jhiTranslate="hospitalityprojectApp.roomServiceData.home.title">Room Service Data</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.roomServiceData.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-room-service-data"
+        [routerLink]="['/room-service-data/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.roomServiceData.home.createLabel"> Create a new Room Service Data </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="roomServiceData?.length === 0">
+    <span jhiTranslate="hospitalityprojectApp.roomServiceData.home.notFound">No roomServiceData found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="roomServiceData && roomServiceData.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.roomServiceData.lang">Lang</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.roomServiceData.title">Title</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.roomServiceData.content">Content</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.roomServiceData.image">Image</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.roomServiceData.roomService">Room Service</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let roomServiceData of roomServiceData; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/room-service-data', roomServiceData.id, 'view']">{{ roomServiceData.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'hospitalityprojectApp.Language.' + roomServiceData.lang }}">{{ roomServiceData.lang }}</td>
+          <td>{{ roomServiceData.title }}</td>
+          <td>{{ roomServiceData.content }}</td>
+          <td>
+            <a *ngIf="roomServiceData.image" (click)="openFile(roomServiceData.image, roomServiceData.imageContentType)">
+              <img
+                [src]="'data:' + roomServiceData.imageContentType + ';base64,' + roomServiceData.image"
+                style="max-height: 30px"
+                alt="roomServiceData image"
+              />
+            </a>
+            <span *ngIf="roomServiceData.image">{{ roomServiceData.imageContentType }}, {{ byteSize(roomServiceData.image) }}</span>
+          </td>
+          <td>
+            <div *ngIf="roomServiceData.roomService">
+              <a [routerLink]="['/room-service', roomServiceData.roomService?.id, 'view']">{{ roomServiceData.roomService?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/room-service-data', roomServiceData.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/room-service-data', roomServiceData.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(roomServiceData)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

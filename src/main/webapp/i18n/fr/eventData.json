@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "eventData": {
+      "home": {
+        "title": "EventData",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Event Data",
+        "createOrEditLabel": "Créer ou éditer un Event Data",
+        "notFound": "Aucun Event Data trouvé"
+      },
+      "created": "Un nouveau Event Data a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Event Data avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Event Data avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Event Data {{ id }} ?"
+      },
+      "detail": {
+        "title": "Event Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "event": "Event"
+    }
+  }
+}

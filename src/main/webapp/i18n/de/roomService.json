@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "roomService": {
+      "home": {
+        "title": "Room Services",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Room Service erstellen",
+        "createOrEditLabel": "Room Service erstellen oder bearbeiten",
+        "notFound": "Keine Room Services gefunden"
+      },
+      "created": "Room Service erstellt mit ID {{ param }}",
+      "updated": "Room Service aktualisiert mit ID {{ param }}",
+      "deleted": "Room Service gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Room Service {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Room Service"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "roomServiceData": "Room Service Data"
+    }
+  }
+}

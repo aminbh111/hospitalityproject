@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "aboutUsData": {
+      "home": {
+        "title": "AboutUsData",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau About Us Data",
+        "createOrEditLabel": "Créer ou éditer un About Us Data",
+        "notFound": "Aucun About Us Data trouvé"
+      },
+      "created": "Un nouveau About Us Data a été créé avec l'identifiant {{ param }}",
+      "updated": "Le About Us Data avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le About Us Data avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le About Us Data {{ id }} ?"
+      },
+      "detail": {
+        "title": "About Us Data"
+      },
+      "id": "ID",
+      "lang": "Lang",
+      "title": "Title",
+      "content": "Content",
+      "image": "Image",
+      "aboutUs": "About Us"
+    }
+  }
+}

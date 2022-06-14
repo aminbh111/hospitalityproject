@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "offer": {
+      "home": {
+        "title": "Offers",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Offer erstellen",
+        "createOrEditLabel": "Offer erstellen oder bearbeiten",
+        "notFound": "Keine Offers gefunden"
+      },
+      "created": "Offer erstellt mit ID {{ param }}",
+      "updated": "Offer aktualisiert mit ID {{ param }}",
+      "deleted": "Offer gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Offer {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Offer"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "offerData": "Offer Data"
+    }
+  }
+}

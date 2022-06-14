@@ -1,0 +1,121 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-restaurant-menu-data-heading"
+        data-cy="RestaurantMenuDataCreateUpdateHeading"
+        jhiTranslate="hospitalityprojectApp.restaurantMenuData.home.createOrEditLabel"
+      >
+        Create or edit a Restaurant Menu Data
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="hospitalityprojectApp.restaurantMenuData.lang" for="field_lang">Lang</label>
+          <select class="form-control" name="lang" formControlName="lang" id="field_lang" data-cy="lang">
+            <option [ngValue]="null">{{ 'hospitalityprojectApp.Language.null' | translate }}</option>
+            <option *ngFor="let language of languageValues" [value]="language">
+              {{ 'hospitalityprojectApp.Language.' + language | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="hospitalityprojectApp.restaurantMenuData.title" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="hospitalityprojectApp.restaurantMenuData.content" for="field_content">Content</label>
+          <input type="text" class="form-control" name="content" id="field_content" data-cy="content" formControlName="content" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="hospitalityprojectApp.restaurantMenuData.image" for="field_image">Image</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('imageContentType')!.value + ';base64,' + editForm.get('image')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('image')!.value"
+              alt="restaurantMenuData image"
+            />
+            <div *ngIf="editForm.get('image')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start">{{ editForm.get('imageContentType')!.value }}, {{ byteSize(editForm.get('image')!.value) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('image', 'imageContentType', 'file_image')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_image"
+              data-cy="image"
+              (change)="setFileData($event, 'image', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="image" id="field_image" data-cy="image" formControlName="image" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="imageContentType"
+            id="field_imageContentType"
+            formControlName="imageContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="hospitalityprojectApp.restaurantMenuData.restaurantMenu" for="field_restaurantMenu"
+            >Restaurant Menu</label
+          >
+          <select
+            class="form-control"
+            id="field_restaurantMenu"
+            data-cy="restaurantMenu"
+            name="restaurantMenu"
+            formControlName="restaurantMenu"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                restaurantMenuOption.id === editForm.get('restaurantMenu')!.value?.id
+                  ? editForm.get('restaurantMenu')!.value
+                  : restaurantMenuOption
+              "
+              *ngFor="let restaurantMenuOption of restaurantMenusSharedCollection; trackBy: trackRestaurantMenuById"
+            >
+              {{ restaurantMenuOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

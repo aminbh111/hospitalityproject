@@ -1,0 +1,28 @@
+{
+  "hospitalityprojectApp": {
+    "meeting": {
+      "home": {
+        "title": "Meetings",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Meeting erstellen",
+        "createOrEditLabel": "Meeting erstellen oder bearbeiten",
+        "notFound": "Keine Meetings gefunden"
+      },
+      "created": "Meeting erstellt mit ID {{ param }}",
+      "updated": "Meeting aktualisiert mit ID {{ param }}",
+      "deleted": "Meeting gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Meeting {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Meeting"
+      },
+      "id": "ID",
+      "date": "Date",
+      "publish": "Publish",
+      "contentPosition": "Content Position",
+      "imagePosition": "Image Position",
+      "meetingData": "Meeting Data"
+    }
+  }
+}

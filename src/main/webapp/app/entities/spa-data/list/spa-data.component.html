@@ -1,0 +1,95 @@
+<div>
+  <h2 id="page-heading" data-cy="SpaDataHeading">
+    <span jhiTranslate="hospitalityprojectApp.spaData.home.title">Spa Data</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.spaData.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-spa-data"
+        [routerLink]="['/spa-data/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hospitalityprojectApp.spaData.home.createLabel"> Create a new Spa Data </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="spaData?.length === 0">
+    <span jhiTranslate="hospitalityprojectApp.spaData.home.notFound">No spaData found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="spaData && spaData.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.spaData.lang">Lang</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.spaData.title">Title</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.spaData.content">Content</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.spaData.image">Image</span></th>
+          <th scope="col"><span jhiTranslate="hospitalityprojectApp.spaData.spa">Spa</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let spaData of spaData; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/spa-data', spaData.id, 'view']">{{ spaData.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'hospitalityprojectApp.Language.' + spaData.lang }}">{{ spaData.lang }}</td>
+          <td>{{ spaData.title }}</td>
+          <td>{{ spaData.content }}</td>
+          <td>
+            <a *ngIf="spaData.image" (click)="openFile(spaData.image, spaData.imageContentType)">
+              <img [src]="'data:' + spaData.imageContentType + ';base64,' + spaData.image" style="max-height: 30px" alt="spaData image" />
+            </a>
+            <span *ngIf="spaData.image">{{ spaData.imageContentType }}, {{ byteSize(spaData.image) }}</span>
+          </td>
+          <td>
+            <div *ngIf="spaData.spa">
+              <a [routerLink]="['/spa', spaData.spa?.id, 'view']">{{ spaData.spa?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/spa-data', spaData.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/spa-data', spaData.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(spaData)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

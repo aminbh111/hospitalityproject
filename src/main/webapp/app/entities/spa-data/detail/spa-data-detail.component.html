@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="spaData">
+      <h2 data-cy="spaDataDetailsHeading"><span jhiTranslate="hospitalityprojectApp.spaData.detail.title">Spa Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ spaData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.spaData.lang">Lang</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'hospitalityprojectApp.Language.' + spaData.lang }}">{{ spaData.lang }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.spaData.title">Title</span></dt>
+        <dd>
+          <span>{{ spaData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.spaData.content">Content</span></dt>
+        <dd>
+          <span>{{ spaData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.spaData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="spaData.image">
+            <a (click)="openFile(spaData.image, spaData.imageContentType)">
+              <img [src]="'data:' + spaData.imageContentType + ';base64,' + spaData.image" style="max-width: 100%" alt="spaData image" />
+            </a>
+            {{ spaData.imageContentType }}, {{ byteSize(spaData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="hospitalityprojectApp.spaData.spa">Spa</span></dt>
+        <dd>
+          <div *ngIf="spaData.spa">
+            <a [routerLink]="['/spa', spaData.spa?.id, 'view']">{{ spaData.spa?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/spa-data', spaData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
