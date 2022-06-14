@@ -48,6 +48,16 @@ public class CacheConfiguration {
             createCache(cm, tn.greencode.hospitality.domain.User.class.getName());
             createCache(cm, tn.greencode.hospitality.domain.Authority.class.getName());
             createCache(cm, tn.greencode.hospitality.domain.User.class.getName() + ".authorities");
+            createCache(cm, tn.greencode.hospitality.domain.Service.class.getName());
+            createCache(cm, tn.greencode.hospitality.domain.Service.class.getName() + ".serviceData");
+            createCache(cm, tn.greencode.hospitality.domain.ServiceData.class.getName());
+            createCache(cm, tn.greencode.hospitality.domain.RestaurantMenu.class.getName());
+            createCache(cm, tn.greencode.hospitality.domain.RestaurantMenu.class.getName() + ".restaurantMenuData");
+            createCache(cm, tn.greencode.hospitality.domain.RestaurantMenuData.class.getName());
+            createCache(cm, tn.greencode.hospitality.domain.Concierge.class.getName());
+            createCache(cm, tn.greencode.hospitality.domain.Concierge.class.getName() + ".conciergeData");
+            createCache(cm, tn.greencode.hospitality.domain.ConciergeData.class.getName());
+            createCache(cm, tn.greencode.hospitality.domain.Playlist.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

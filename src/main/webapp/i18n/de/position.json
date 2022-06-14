@@ -1,0 +1,10 @@
+{
+  "hospitalityprojectApp": {
+    "Position": {
+      "null": "",
+      "LEFT": "LEFT",
+      "RIGHT": "RIGHT",
+      "CENTER": "CENTER"
+    }
+  }
+}
