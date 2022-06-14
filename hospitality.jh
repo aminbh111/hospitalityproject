@@ -1,0 +1,237 @@
+entity Service {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity ServiceData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	Service to ServiceData{service}
+}
+
+
+
+entity RestaurantMenu {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity RestaurantMenuData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	RestaurantMenu to RestaurantMenuData{restaurantMenu}
+}
+
+entity Event {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity EventData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	Event to EventData{event}
+}
+
+entity AboutUs {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity AboutUsData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	AboutUs to AboutUsData{aboutUs}
+}
+
+entity ContactUs {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity ContactUsData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	ContactUs to ContactUsData{contactUs}
+}
+
+entity Spa {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity SpaData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	Spa to SpaData{spa}
+}
+
+entity RoomService {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity RoomServiceData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	RoomService to RoomServiceData{roomService}
+}
+
+entity Bars {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity BarsData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	Bars to BarsData{bars}
+}
+entity Meeting {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity MeetingData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	Meeting to MeetingData{meeting}
+}
+
+entity Offer {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity OfferData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	Offer to OfferData{offer}
+}
+
+entity Concierge {
+    date ZonedDateTime,
+    publish Boolean,
+    contentPosition Position,
+    imagePosition Position,
+}
+
+
+entity ConciergeData {
+	lang Language,
+	title String,
+	content String,
+    image ImageBlob,
+}
+
+relationship OneToMany {
+	Concierge to ConciergeData{concierge}
+}
+
+
+entity Playlist {
+    date ZonedDateTime,
+	lang Language,
+	file TextBlob,
+}
+
+
+
+enum Position {
+    LEFT, RIGHT, CENTER, BACKGROUND
+}
+
+enum Language {
+    FR, EN, DE
+}
+// Set pagination options
+paginate Service, RestaurantMenu, Concierge, Playlist with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Service, RestaurantMenu, Concierge, Playlist
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
